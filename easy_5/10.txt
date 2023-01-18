@@ -1,0 +1,1 @@
+Different because split and join create new objects.

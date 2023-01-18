@@ -1,0 +1,7 @@
+Alice
+Bob
+
+BOB
+BOB
+
+After line 2, name and save_name are both pointers to the string object "Bob". When upcase! is called, it mutates the object both variables are pointing to. Thus both name and save_name will look the same when printed.
