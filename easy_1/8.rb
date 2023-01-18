@@ -1,15 +1,10 @@
-def average(numbers)
-  numbers.sum / numbers.size
+def reversed_number(number)
+  number.to_s.reverse.to_i
 end
 
-puts average([1, 6]) == 3 # integer division: (1 + 6) / 2 -> 3
-puts average([1, 5, 87, 45, 8, 8]) == 25
-puts average([9, 47, 23, 95, 16, 52]) == 40
-
-def average(numbers)
-  numbers.sum / numbers.size.to_f
-end
-
-puts average([1, 6])
-puts average([1, 5, 87, 45, 8, 8])
-puts average([9, 47, 23, 95, 16, 52])
+p reversed_number(12345) == 54321
+p reversed_number(12213) == 31221
+p reversed_number(456) == 654
+p reversed_number(12000) == 21 # No leading zeros in return value!
+p reversed_number(12003) == 30021
+p reversed_number(1) == 1

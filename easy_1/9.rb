@@ -1,7 +1,13 @@
-def sum(number)
-  number.to_s.split('').map(&:to_i).sum
+def center_of(text)
+  if text.size.odd?
+    text[text.size / 2]
+  else
+    text[(text.size / 2) - 1, 2]
+  end
 end
 
-puts sum(23) == 5
-puts sum(496) == 19
-puts sum(123_456_789) == 45
+p center_of('I love ruby') == 'e'
+p center_of('Launch School') == ' '
+p center_of('Launch') == 'un'
+p center_of('Launchschool') == 'hs'
+p center_of('x') == 'x'

@@ -1,8 +1,33 @@
-def reverse_words(sentence)
-  words = sentence.split.map {|word| word.length >= 5 ? word.reverse : word}
-  words.join(' ')
+def triangle(side_length)
+  (1..side_length).each { |width| puts ('*' * width).rjust(side_length) }
 end
 
-puts reverse_words('Professional')          # => lanoisseforP
-puts reverse_words('Walk around the block') # => Walk dnuora the kcolb
-puts reverse_words('Launch School')         # => hcnuaL loohcS
+triangle(5)
+triangle(9)
+
+# Upside-down
+def triangle(side_length)
+  (0...side_length).each { |width| puts (' ' * width).ljust(side_length, '*') }
+end
+
+triangle(5)
+triangle(9)
+
+# Any angle
+def triangle(length, right_angle)
+  case right_angle
+  when :tl
+    (0...length).each { |width| puts (' ' * width).rjust(length, '*') }
+  when :tr
+    (0...length).each { |width| puts (' ' * width).ljust(length, '*') }
+  when :bl
+    (1..length).each { |width| puts ('*' * width).ljust(length) }
+  when :br
+    (1..length).each { |width| puts ('*' * width).rjust(length) }
+  end
+end
+
+triangle(5, :tl)
+triangle(5, :tr)
+triangle(5, :bl)
+triangle(5, :br)
