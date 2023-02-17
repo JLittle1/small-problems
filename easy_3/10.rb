@@ -1,7 +1,14 @@
-def palindromic_number?(number)
-  number = number.to_s
-  number == number.reverse
+def uppercase?(str)
+  str == str.upcase
 end
 
-# If the number begins with one or more zeroes, it will still work, but it must
-# be passed to the method as a string.
+p uppercase?('t') == false
+p uppercase?('T') == true
+p uppercase?('Four Score') == false
+p uppercase?('FOUR SCORE') == true
+p uppercase?('4SCORE!') == true
+p uppercase?('') == true
+
+# It wouldn't make sense to return `false` for an empty string because all
+# the characters in the string (none) are already uppercase. There are no
+# lowercase characters.
