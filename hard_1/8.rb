@@ -1,3 +1,5 @@
+require 'pry'
+
 def merge_sort(arr)
   return arr if arr.size == 1
   half1 = merge_sort(arr[0...arr.size / 2])
@@ -18,6 +20,21 @@ def merge(array1, array2)
   end
 
   result.concat(array2[index2..-1])
+end
+
+# Non-recursive
+def merge_sort(arr)
+  m = 1
+  while m < arr.size
+    i = 0
+    while i < arr.size - m
+      final_index = [i + 2 * m - 1, arr.size - 1].min
+      arr[i..final_index] = merge(arr[i...i + m], arr[i + m..final_index])
+      i += 2 * m
+    end
+    m *= 2
+  end
+  arr
 end
 
 p merge_sort([9, 5, 7, 1]) == [1, 5, 7, 9]

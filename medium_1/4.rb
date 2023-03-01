@@ -8,9 +8,7 @@ def lights(n)
   (1..n).to_a.zip(switches).select{ |_, switch| switch }.map{ |num, _| num }
 end
 
-p lights(5)
-p lights(10)
-
+# This alternative solution calculates the squares up to `n` directly.
 def lights(n)
   result = []
   number = 1
@@ -23,5 +21,29 @@ def lights(n)
   result
 end
 
-p lights(5)
-p lights(1000)
+def display_lights(n)
+  turned_on = lights(n).map(&:to_s)
+  turned_off = ((1..n).to_a - turned_on).map(&:to_s)
+
+  turned_on = join_and(turned_on)
+  turned_off = join_and(turned_off)
+
+  if turned_off.empty?
+    puts 'every light is turned on'
+  else
+    puts "light#{turned_off} now off; #{turned_on} on."
+  end
+end
+
+def join_and(arr)
+  return ' ' + arr[0] + ' is' if arr.size == 1
+  return 's ' + arr[0] + ' and ' + arr[1] + ' are' if arr.size == 2
+  's ' + arr[0...-1].join(', ') + ', and ' + arr[-1] + ' are'
+end
+
+display_lights(1)
+display_lights(2)
+display_lights(3)
+display_lights(4)
+display_lights(5)
+display_lights(20)

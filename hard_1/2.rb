@@ -37,6 +37,73 @@ def star(n)
   end
 end
 
-star(9)
-star(21)
-star(7)
+def circle(n)
+  edge_length = case (n % 4)
+                when 0 then n / 2
+                when 1 then n / 2 + 1
+                when 2 then n / 2 - 1
+                when 3 then n / 2
+                end
+  puts ('*' * edge_length).center(n)
+
+  (n - edge_length - 3).times do |i|
+    puts "*#{' ' * (edge_length + i * 2)}*".center(n)
+  end
+
+  (n - edge_length - 2).times { puts "*#{' ' * (n - 1)}*" }
+end
+
+=begin
+4 - 2
+5 - 3
+6 - 2
+7 - 3
+
+First is `case(n % 4)
+
+4
+ ** 
+*  *
+*  *
+ **
+5
+ ***
+*   *
+*   *
+*   *
+ ***
+6
+  **  
+ *  *
+*    *
+*    *
+ *  *
+  **
+7
+  ***  
+ *   *
+*     *
+*     *
+ *   * 
+  ***
+8
+  ****  
+ *    *
+*      *
+*      *
+*      *
+*      *
+ *    *
+  ****
+9
+  *****
+ *     *
+*       *
+*       *
+*       *
+*       *
+*       *
+ *     *
+  *****
+
+  =end
